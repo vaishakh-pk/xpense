@@ -19,7 +19,9 @@ class _ExpensesState extends State<Expenses> {
 
   void _openAddExpenseOverlay()
   {
-    showModalBottomSheet(context: context, builder: (ctx){
+    showModalBottomSheet(
+      isScrollControlled: true,
+      context: context, builder: (ctx){
       return NewExpense(onAddExpense : _addExpense);
     });
   }
@@ -31,8 +33,18 @@ class _ExpensesState extends State<Expenses> {
     });
   }
 
+  void _removeExpense(Expense expense)
+  {
+    setState(() {
+      _registeredExpenses.remove(expense);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+
+    Widget mainContent = Center(child: Text('No Expenses found. Start adding some'));
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Xpense'),
@@ -43,7 +55,7 @@ class _ExpensesState extends State<Expenses> {
       body: Column(
         children: [
           Text('The chart'),
-          Expanded(child: ExpenseList(expenses: _registeredExpenses))
+          Expanded(child: ExpenseList(expenses: _registeredExpenses, onRemoveExpense: _removeExpense,))
         ],
       ),
     );

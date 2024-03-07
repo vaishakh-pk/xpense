@@ -46,6 +46,7 @@ class _NewExpenseState extends State<NewExpense> {
     }
 
     widget.onAddExpense(Expense(title: _titleController.text, amount: enteredAmount, date: _selectedDate!, category: _selectedCategory));
+    Navigator.pop(context);
   }
 
 /*Dispose TextEditingController after use else will remain in memory 
@@ -60,7 +61,7 @@ even when the widget is not displayed*/
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.fromLTRB(16,48,16,16),
       child: Column(
         children: [
           TextField(
