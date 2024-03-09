@@ -40,6 +40,8 @@ class _ExpensesState extends State<Expenses> {
       _registeredExpenses.remove(expense);
     });
 
+  ScaffoldMessenger.of(context).clearSnackBars();
+  
   // Scaffold Messenger to showSnackbar and also incorporate undo remove action
 
     ScaffoldMessenger.of(context).showSnackBar(
