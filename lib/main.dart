@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xpense/widgets/expenses.dart';
+import 'package:flutter/services.dart';
 
 var kColorScheme =
     ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 96, 59, 181));
@@ -11,6 +12,12 @@ var kDarkColorScheme =
       );
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp
+  ]).then((value){
+
+ 
   runApp(MaterialApp(
     darkTheme: ThemeData.dark().copyWith(
       colorScheme: kDarkColorScheme,
@@ -40,5 +47,7 @@ void main() {
                 fontSize: 16))),
     themeMode: ThemeMode.system,
     home: const Expenses(),
-  ));
+  )
+  );
+   });
 }
