@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xpense/widgets/expenses.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 
 var kColorScheme =
     ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 96, 59, 181));
@@ -12,10 +12,10 @@ var kDarkColorScheme =
       );
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp
-  ]).then((value){
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp
+  // ]).then((value){
 
  
   runApp(MaterialApp(
@@ -49,5 +49,5 @@ void main() {
     home: const Expenses(),
   )
   );
-   });
+  //  });
 }
